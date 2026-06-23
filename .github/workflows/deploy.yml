@@ -1,36 +1,36 @@
-name: Build & Deploy to Cloudflare Pages
+name: Update Article Dates
 
 on:
   push:
     branches: [main]
 
-# 允許 workflow 推回 date 更新
+# Cloudflare Pages 已直接連動 GitHub，本 workflow 只負責自動更新文章日期
+# Cloudflare Pages 在收到 push 事件後會自行啟動 build & deploy
+
 permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
+  update-dates:
     runs-on: ubuntu-latest
+    # 跳過 [skip ci] commit（避免循環）
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
-      # 1. 取出完整 git 歷史（build.py 需要 git log）
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # 2. 設定 Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # 3. 執行建置腳本：更新文章日期 & 排序
       - name: Update article dates
         run: python scripts/build.py
 
-      # 4. 若有日期變更，commit 回 main（[skip ci] 避免觸發循環）
-      - name: Commit date updates
+      - name: Commit date updates if changed
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Actions"
@@ -40,14 +40,3 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # 5. 部署到 Cloudflare Pages
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken:     ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId:    ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName:  ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-          directory:    .
-          gitHubToken:  ${{ secrets.GITHUB_TOKEN }}
-          branch:       main
