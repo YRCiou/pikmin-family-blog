@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="親子共遊皮克敏——帶著孩子一起探索皮克敏的世界，邊玩邊學，增進家庭感情。">
+  <title>親子共遊皮克敏 | 探索、成長、歡笑的家庭冒險</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-page="index">
+
+  <!-- ── 頂部導覽 ── -->
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a href="/" class="site-logo">
+        <span class="site-logo-icon">🌿</span>
+        親子共遊皮克敏
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <header id="hero" class="hero">
+    <div class="hero-img-wrap">
+      <!--
+        Hero 圖片：Person Playing Nintendo Switch
+        作者：Inclusive Game Lab
+        授權：CC BY-SA 4.0
+        來源：https://commons.wikimedia.org/wiki/File:InclusiveGameLab_Person-Playing-Nintendo-Switch_3_CC-BY-SA.jpg
+      -->
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/InclusiveGameLab_Person-Playing-Nintendo-Switch_3_CC-BY-SA.jpg"
+        alt="家人一起玩任天堂 Switch"
+        class="hero-img"
+        loading="eager"
+      >
+    </div>
+    <div class="hero-inner">
+      <div class="hero-kicker">🍄 皮克敏親子部落格</div>
+      <h1>親子共遊皮克敏<br>探索、成長、歡笑</h1>
+      <p class="hero-sub">帶著孩子一起認識皮克敏，邊玩邊學「段取り」思維，創造屬於全家人的遊戲回憶。</p>
+      <div class="hero-counter">
+        🌱 本站已被 <span class="view-count">—</span> 個家庭探訪
+      </div>
+    </div>
+  </header>
+
+  <!-- ── 段落導覽標籤 ── -->
+  <nav class="section-nav" id="section-nav" aria-label="頁面段落導覽">
+    <div class="section-nav-inner">
+      <a href="#discover"  class="nav-tag tag-discover">🔵 認識皮克敏</a>
+      <a href="#family"    class="nav-tag tag-family">🔴 親子共玩</a>
+      <a href="#tips"      class="nav-tag tag-tips">🟡 遊戲攻略</a>
+      <a href="#schedule"  class="nav-tag tag-schedule">🟣 時間規劃</a>
+    </div>
+  </nav>
+
+  <!-- ── 認識皮克敏 ── -->
+  <section id="discover" class="article-section section-discover">
+    <div class="section-inner">
+      <h2 class="section-title">認識皮克敏</h2>
+      <div class="cards-grid" id="cards-discover" role="list"></div>
+    </div>
+  </section>
+
+  <!-- ── 親子共玩 ── -->
+  <section id="family" class="article-section section-family">
+    <div class="section-inner">
+      <h2 class="section-title">親子共玩</h2>
+      <div class="cards-grid" id="cards-family" role="list"></div>
+    </div>
+  </section>
+
+  <!-- ── 遊戲攻略 ── -->
+  <section id="tips" class="article-section section-tips">
+    <div class="section-inner">
+      <h2 class="section-title">遊戲攻略</h2>
+      <div class="cards-grid" id="cards-tips" role="list"></div>
+    </div>
+  </section>
+
+  <!-- ── 時間規劃 ── -->
+  <section id="schedule" class="article-section section-schedule">
+    <div class="section-inner">
+      <h2 class="section-title">時間規劃</h2>
+      <div class="cards-grid" id="cards-schedule" role="list"></div>
+    </div>
+  </section>
+
+  <!-- ── 返回頂部 ── -->
+  <button class="back-to-top" aria-label="返回頂部" title="返回頂部">↑</button>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-credit">
+        <p>
+          🖼️ <strong>Hero 圖片</strong>：
+          <a href="https://commons.wikimedia.org/wiki/File:InclusiveGameLab_Person-Playing-Nintendo-Switch_3_CC-BY-SA.jpg"
+             target="_blank" rel="noopener">
+            "Person Playing Nintendo Switch"
+          </a>
+          by
+          <a href="https://inclusivelabs.org/" target="_blank" rel="noopener">Inclusive Game Lab</a>，
+          授權條款：
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">
+            CC BY-SA 4.0
+          </a>。
+        </p>
+        <p>🎮 皮克敏（Pikmin）系列為任天堂株式會社之注冊商標。本站為獨立粉絲創作，與任天堂無關聯。</p>
+      </div>
+      <p class="footer-copy">© 2026 親子共遊皮克敏｜用愛與段取り打造的家庭遊戲誌</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="/js/supabase-config.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
