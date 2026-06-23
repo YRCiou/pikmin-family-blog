@@ -9,161 +9,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    /* ── 一頁式內容區塊 ── */
-    .page-section {
-      padding: var(--space-2xl) 0;
-      border-bottom: 2px dashed var(--card-border);
-    }
+    .page-section { padding: var(--space-2xl) 0; border-bottom: 3px dashed var(--card-border); }
     .page-section:last-of-type { border-bottom: none; }
-    .page-section-inner {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 0 var(--space-l);
-    }
-    .page-section-header {
-      display: flex;
-      align-items: center;
-      gap: var(--space-m);
-      margin-bottom: var(--space-xl);
-    }
-    .section-icon {
-      font-size: 2.2rem;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-    .section-heading {
-      font-size: clamp(1.4rem, 3vw, 1.9rem);
-      font-weight: 900;
-      color: var(--green-dark);
-      line-height: 1.3;
-    }
-    .section-heading small {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-light);
-      margin-top: 4px;
-    }
-
-    /* 文章式內容排版（複用 article-content 樣式） */
-    .page-content h2 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--green-dark);
-      margin: var(--space-xl) 0 var(--space-m);
-      padding-left: var(--space-m);
-      border-left: 4px solid var(--green-light);
-    }
-    .page-content h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin: var(--space-l) 0 var(--space-s);
-    }
-    .page-content p { margin-bottom: var(--space-m); line-height: 1.85; }
-    .page-content ul, .page-content ol {
-      margin: 0 0 var(--space-m) var(--space-l);
-    }
-    .page-content li { margin-bottom: var(--space-s); line-height: 1.75; }
-    .page-content strong { color: var(--green-dark); }
-    .page-content em { font-style: normal; background: #FFF8DC; padding: 0 4px; border-radius: 3px; }
-    .page-content table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: var(--space-l) 0;
-      font-size: 0.9rem;
-    }
-    .page-content th {
-      background: var(--green-dark);
-      color: #fff;
-      padding: var(--space-s) var(--space-m);
-      text-align: left;
-      font-weight: 700;
-    }
-    .page-content td {
-      padding: var(--space-s) var(--space-m);
-      border-bottom: 1px solid var(--card-border);
-      vertical-align: top;
-    }
-    .page-content tr:nth-child(even) td { background: var(--green-pale); }
-    .page-content table { overflow-x: auto; display: block; }
-
-    /* 提示框 */
-    .tip-box {
-      background: var(--green-pale);
-      border: 1px solid var(--card-border);
-      border-left: 4px solid var(--green-mid);
-      border-radius: 0 var(--radius-m) var(--radius-m) 0;
-      padding: var(--space-l);
-      margin: var(--space-l) 0;
-    }
-    .tip-box-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--green-dark);
-      margin-bottom: var(--space-s);
-    }
-    .tip-box p { margin-bottom: var(--space-s); }
-    .tip-box p:last-child { margin-bottom: 0; }
-
-    /* 警示框 */
-    .warn-box {
-      background: #FFF8DC;
-      border-left: 4px solid var(--pikmin-yellow);
-      border-radius: 0 var(--radius-m) var(--radius-m) 0;
-      padding: var(--space-l);
-      margin: var(--space-l) 0;
-    }
-
-    /* 步驟清單 */
-    .step-list {
-      counter-reset: step;
-      list-style: none;
-      margin: 0 0 var(--space-l) 0;
-      padding: 0;
-    }
-    .step-list li {
-      counter-increment: step;
-      display: flex;
-      gap: var(--space-m);
-      margin-bottom: var(--space-m);
-      align-items: flex-start;
-    }
-    .step-list li::before {
-      content: counter(step);
-      background: var(--green-mid);
-      color: #fff;
-      font-size: 0.8rem;
-      font-weight: 700;
-      min-width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* 閱讀計數（頁頂） */
-    .page-views-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: var(--space-s);
-    }
-
-    /* 內頁連結錨點偏移（避免被 sticky nav 遮住） */
-    .anchor-target {
-      scroll-margin-top: 110px;
-    }
-
-    @media (max-width: 600px) {
-      .page-content table { font-size: 0.82rem; }
-      .page-content th, .page-content td { padding: 6px 10px; }
-    }
+    .page-section-inner { max-width: 780px; margin: 0 auto; padding: 0 var(--space-l); }
+    .anchor-target { scroll-margin-top: 110px; }
+    /* override any display:block from old inline style */
+    .page-content table { display: table !important; overflow-x: visible !important; }
   </style>
 </head>
 <body data-page="index">
@@ -188,17 +39,25 @@
         loading="eager"
       >
     </div>
+    <div class="hero-floats">
+      <span class="hero-float" style="top:15%;left:8%;animation-delay:0s">🔴</span>
+      <span class="hero-float" style="top:60%;left:5%;animation-delay:0.8s">🌿</span>
+      <span class="hero-float" style="top:25%;right:10%;animation-delay:1.2s">🟡</span>
+      <span class="hero-float" style="top:70%;right:7%;animation-delay:0.4s">🔵</span>
+      <span class="hero-float" style="top:45%;left:15%;animation-delay:1.8s;font-size:1.4rem">❄️</span>
+      <span class="hero-float" style="top:40%;right:18%;animation-delay:2.2s;font-size:1.4rem">🐾</span>
+    </div>
     <div class="hero-inner">
       <div class="hero-kicker">🍄 皮克敏親子部落格</div>
-      <h1>親子共遊皮克敏<br>探索、成長、歡笑</h1>
-      <p class="hero-sub">帶著孩子一起認識皮克敏，邊玩邊學「段取り」思維，創造屬於全家人的遊戲回憶。向下滾動，一頁讀完所有內容。</p>
+      <h1>親子共遊皮克敏<br>探索、成長、歡笑！</h1>
+      <p class="hero-sub">帶著孩子一起認識皮克敏，邊玩邊學「段取り」思維，創造全家人的遊戲回憶 🌱</p>
       <div class="hero-counter">
         🌱 本站已被 <span class="view-count">—</span> 個家庭探訪
       </div>
     </div>
   </header>
 
-  <!-- ── 段落導覽標籤 ── -->
+  <!-- ── 段落導覽標籤（現在置中） ── -->
   <nav class="section-nav" id="section-nav" aria-label="頁面段落導覽">
     <div class="section-nav-inner">
       <a href="#discover"  class="nav-tag tag-discover">🔵 認識皮克敏</a>
@@ -208,376 +67,577 @@
     </div>
   </nav>
 
-  <!-- ══════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════
        段落一：認識皮克敏
-  ══════════════════════════════════════════════════ -->
+  ══════════════════════════════════════════════ -->
   <section id="discover" class="page-section section-discover anchor-target">
     <div class="page-section-inner">
-      <div class="page-section-header">
-        <div class="section-icon">🔵</div>
+
+      <!-- 段落標頭 -->
+      <div class="section-banner discover anim">
+        <div class="banner-icon">🔵</div>
         <div>
-          <h2 class="section-heading">全家一起認識皮克敏：從哪裡開始？
-            <small>適合完全新手的入門路徑整理</small>
-          </h2>
+          <div class="banner-title" style="color:#1A4A9A">全家一起認識皮克敏！</div>
+          <div class="banner-sub" style="color:#1A4A9A">從哪裡開始？新手入門完全攻略 🌱</div>
         </div>
       </div>
 
-      <div class="page-content">
-        <p>皮克敏（Pikmin）是任天堂推出的策略探索遊戲系列，玩家指揮一群顏色各異、能力不同的皮克敏小精靈，在大自然般的世界中解謎、蒐集寶物、拯救夥伴。整個系列的核心概念——<strong>「段取り」</strong>（有效規劃、分工執行）——不只是遊戲機制，更是一種可以在日常生活中練習的思維方式。</p>
+      <p class="intro-text anim">
+        皮克敏（Pikmin）是任天堂推出的策略探索遊戲，玩家指揮一群顏色不同、能力各異的小精靈，在大自然中解謎、蒐集寶物、拯救夥伴。
+        遊戲核心理念叫做 <strong>「段取り」</strong>（有效規劃、分工執行），是全家一起練習的好機會！
+      </p>
 
-        <h2>🎬 第一步：先用 YouTube 暖場</h2>
-        <p>任天堂台灣官方 YouTube 頻道定期更新皮克敏系列的中文字幕宣傳影片。建議全家人一起坐下來看以下影片：</p>
-        <ul>
-          <li>《皮克敏4》官方發表預告——約 3 分鐘，畫面可愛，立刻抓住孩子的目光</li>
-          <li>皮克敏4 親子共玩介紹影片——說明雙人合作模式</li>
-          <li>Pikmin Bloom 官方介紹——手機版皮克敏，強調走路健康，容易獲得家長認同</li>
-        </ul>
-
-        <div class="tip-box">
-          <p class="tip-box-title">🌿 小技巧</p>
-          <p>讓孩子「選」一隻他最喜歡的皮克敏顏色，並記住它的特殊能力，這個小小的投入感能讓孩子更期待真正上手。</p>
+      <!-- 皮克敏家族圖卡 -->
+      <div class="subsection-title anim">🌈 認識皮克敏家族——每種都有超能力！</div>
+      <div class="pikmin-grid">
+        <div class="pikmin-card p-red anim anim-d1">
+          <span class="p-emoji">🌹</span>
+          <span class="p-name">紅皮克敏</span>
+          <span class="p-skill">💪 攻擊力最強<br>🔥 不怕火焰</span>
         </div>
-
-        <h2>📱 第二步：Pikmin Bloom——走路就能玩的手機入門</h2>
-        <p><strong>Pikmin Bloom</strong> 是任天堂與 Niantic 合作推出的 AR 手機遊戲，免費下載，完全適合親子一起體驗。玩法核心是「走路」——你走的每一步都換成皮克敏成長的養分。</p>
-        <ul>
-          <li>✅ 不需要買主機，手機即可</li>
-          <li>✅ 鼓勵全家一起散步，有益健康</li>
-          <li>✅ 種花、蒐集、換飾品的過程輕鬆無壓力</li>
-          <li>✅ 台灣有明信片地標連動，帶孩子探索住家附近也成了冒險</li>
-        </ul>
-
-        <h2>🎮 第三步：下載《皮克敏4》免費試玩版</h2>
-        <p>任天堂 eShop 提供《皮克敏4》的正式試玩版（Nintendo Switch Online 會員可免費下載）。試玩版包含遊戲開頭約 1–2 小時的內容，足夠讓全家人體驗：</p>
-        <ul>
-          <li>Oatchi（拯救犬）如何當你的夥伴</li>
-          <li>不同顏色皮克敏的基本特性</li>
-          <li>遊戲的「段取り」節奏感</li>
-        </ul>
-        <p>試玩存檔可直接匯入正式版，完全不浪費。</p>
-
-        <h2>👥 第四步：加入台灣皮克敏社群</h2>
-        <p>台灣的 Pikmin Bloom 社群相當活躍，PTT、Facebook 社團與 Discord 都有玩家分享心得：</p>
-        <ul>
-          <li>了解台灣限定地標事件（如與縣市政府合作的走路活動）</li>
-          <li>找到附近共同散步的家長同好</li>
-          <li>孩子可以交流各自的皮克敏蒐集進度</li>
-        </ul>
-
-        <div class="tip-box">
-          <p class="tip-box-title">📅 推薦入門時間表</p>
-          <p><strong>第1週：</strong>一起看 YouTube 官方影片，選擇喜愛的皮克敏</p>
-          <p><strong>第2週：</strong>下載 Pikmin Bloom，以散步形式體驗</p>
-          <p><strong>第3週：</strong>下載《皮克敏4》試玩版，雙人合作嘗試</p>
-          <p><strong>第4週以後：</strong>評估是否購買正式版，加入社群</p>
+        <div class="pikmin-card p-yellow anim anim-d2">
+          <span class="p-emoji">⚡</span>
+          <span class="p-name">黃皮克敏</span>
+          <span class="p-skill">🎯 可以丟炸彈<br>⚡ 不怕電擊</span>
+        </div>
+        <div class="pikmin-card p-blue anim anim-d3">
+          <span class="p-emoji">💧</span>
+          <span class="p-name">藍皮克敏</span>
+          <span class="p-skill">🏊 水中最強<br>🌊 完全抗水</span>
+        </div>
+        <div class="pikmin-card p-ice anim anim-d4">
+          <span class="p-emoji">❄️</span>
+          <span class="p-name">冰皮克敏</span>
+          <span class="p-skill">🧊 凍住敵人<br>❄️ 完全抗寒</span>
+        </div>
+        <div class="pikmin-card p-purple anim anim-d5">
+          <span class="p-emoji">🔮</span>
+          <span class="p-name">紫皮克敏</span>
+          <span class="p-skill">🏋️ 超強大力士<br>💥 10倍重量</span>
+        </div>
+        <div class="pikmin-card p-oatchi anim anim-d6">
+          <span class="p-emoji">🐕</span>
+          <span class="p-name">Oatchi</span>
+          <span class="p-skill">🐾 拯救犬夥伴<br>✨ 多種特殊技</span>
         </div>
       </div>
+
+      <!-- 入門四步驟 -->
+      <div class="subsection-title anim">🚀 入門四步驟——照著做就對了！</div>
+      <div class="step-cards">
+        <div class="step-card anim anim-d1" style="border-top-color:#2F69C2">
+          <div class="step-num" style="background:#2F69C2">1</div>
+          <div class="step-emoji">📺</div>
+          <div class="step-title">看 YouTube 影片</div>
+          <div class="step-desc">一起看任天堂官方中文預告，讓孩子選一隻最喜歡的皮克敏！</div>
+        </div>
+        <div class="step-card anim anim-d2" style="border-top-color:#3D8B37">
+          <div class="step-num" style="background:#3D8B37">2</div>
+          <div class="step-emoji">📱</div>
+          <div class="step-title">Pikmin Bloom</div>
+          <div class="step-desc">手機免費下載！走路就能玩，全家散步同時養皮克敏，超健康！</div>
+        </div>
+        <div class="step-card anim anim-d3" style="border-top-color:#D94040">
+          <div class="step-num" style="background:#D94040">3</div>
+          <div class="step-emoji">🎮</div>
+          <div class="step-title">下載試玩版</div>
+          <div class="step-desc">eShop 有《皮克敏4》免費試玩，玩 1–2 小時存檔還能帶入正式版！</div>
+        </div>
+        <div class="step-card anim anim-d4" style="border-top-color:#7B4FBF">
+          <div class="step-num" style="background:#7B4FBF">4</div>
+          <div class="step-emoji">👥</div>
+          <div class="step-title">加入社群</div>
+          <div class="step-desc">Facebook、Discord 都有台灣玩家！找到一起走路蒐集的鄰居夥伴！</div>
+        </div>
+      </div>
+
+      <!-- 一個月計畫表 -->
+      <div class="subsection-title anim">📅 一個月入門計畫表</div>
+      <table class="score-table anim">
+        <thead>
+          <tr><th>第幾週</th><th>做什麼</th><th>目標</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>第 1 週 📺</td>
+            <td>一起看 YouTube 官方影片</td>
+            <td>選出最喜歡的皮克敏顏色</td>
+          </tr>
+          <tr>
+            <td>第 2 週 📱</td>
+            <td>下載 Pikmin Bloom 散步</td>
+            <td>養大第一隻皮克敏！</td>
+          </tr>
+          <tr>
+            <td>第 3 週 🎮</td>
+            <td>下載皮克敏4試玩版</td>
+            <td>雙人合作完成第一個地下城</td>
+          </tr>
+          <tr>
+            <td>第 4 週 🎉</td>
+            <td>加入社群，討論要不要買正式版</td>
+            <td>找到一個皮克敏新朋友！</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="fun-tip-box green anim">
+        <div class="fun-tip-box-title">🌿 小小秘訣</div>
+        <p>讓孩子<strong>自己選一隻最喜歡的皮克敏</strong>，記住它的顏色和超能力。這個小小投入感會讓孩子超期待真正上手玩！</p>
+        <p>試玩版的存檔可以<strong>直接匯入正式版</strong>，完全不浪費，放心玩到底！</p>
+      </div>
+
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════
        段落二：親子共玩
-  ══════════════════════════════════════════════════ -->
+  ══════════════════════════════════════════════ -->
   <section id="family" class="page-section section-family anchor-target">
     <div class="page-section-inner">
-      <div class="page-section-header">
-        <div class="section-icon">🔴</div>
+
+      <div class="section-banner family anim">
+        <div class="banner-icon">🔴</div>
         <div>
-          <h2 class="section-heading">為什麼皮克敏很適合全家一起玩？
-            <small>親子感情、合作模式、段取り思維的完整解析</small>
-          </h2>
+          <div class="banner-title" style="color:#8A1010">為什麼皮克敏超適合全家玩？</div>
+          <div class="banner-sub" style="color:#8A1010">6 大理由讓爸媽也愛上它 💕</div>
         </div>
       </div>
 
-      <div class="page-content">
-        <p>每次有人問我「親子之間適合玩什麼遊戲？」，我的第一個答案永遠是皮克敏。不是因為它是最刺激的，而是因為它是<strong>最適合家人一起坐在同一個沙發上、分享同一個螢幕</strong>的遊戲。</p>
-
-        <h2>✅ 理由一：對孩子完全安全，家長可以放心</h2>
-        <ul>
-          <li>日本 CERO 評級：<strong>A（全年齡適用）</strong></li>
-          <li>美國 ESRB 評級：<strong>E（Everyone）</strong></li>
-          <li>台灣遊戲分級：<strong>普遍級</strong></li>
-        </ul>
-        <p>遊戲中沒有血腥、沒有成人語言、沒有賭博元素。皮克敏被怪物吃掉時的表現也是卡通風格，不會讓孩子感到恐懼。</p>
-
-        <h2>🎮 理由二：內建合作模式，真的可以一起玩</h2>
-        <p>《皮克敏4》在同一台 Nintendo Switch 上支援<strong>雙人同框合作</strong>，不需要購買第二台主機：</p>
-        <ul>
-          <li><strong>主控者</strong>：操作主角，指揮皮克敏大軍</li>
-          <li><strong>合作者</strong>：使用 Joy-Con 指針，扔石頭攻擊敵人、使用道具、拯救落水的皮克敏</li>
-          <li>合作者的參與程度可以很低（輔助型），也可以很積極（戰鬥型），完全彈性</li>
-        </ul>
-
-        <div class="tip-box">
-          <p class="tip-box-title">🎮 實際分工建議</p>
-          <p>建議爸媽擔任主控者，孩子擔任合作者——孩子的任務是「保護皮克敏不被吃掉」，符合他們保護小動物的本能，參與感極高。</p>
+      <!-- 六大理由圖卡 -->
+      <div class="subsection-title anim">✅ 6 大理由——爸媽也會點頭同意！</div>
+      <div class="reason-grid">
+        <div class="reason-card anim anim-d1" style="border-left-color:#3D8B37">
+          <span class="reason-icon">🛡️</span>
+          <div class="reason-title" style="color:#3D8B37">全年齡完全安全</div>
+          <div class="reason-desc">普遍級評定，無血腥、無賭博、無不雅語言。卡通風格，孩子不怕！</div>
         </div>
-
-        <h2>🧠 理由三：「段取り」思維，讓孩子學會規劃</h2>
-        <p>皮克敏的核心是<strong>段取り（Dandori）</strong>——「提前規劃、有效執行、分工合作」。遊戲每一關都有時間限制，玩家需要：</p>
-        <ul>
-          <li>決定先做哪件事</li>
-          <li>分派不同顏色的皮克敏執行不同任務</li>
-          <li>隨時應對突發狀況並調整計畫</li>
-        </ul>
-        <p>研究指出，遊戲中反覆練習這類「多任務決策」，能有效提升孩子的<strong>執行功能</strong>，包括工作記憶、認知彈性和計畫能力——這些都是在學業上同樣重要的能力。</p>
-
-        <h2>💛 理由四：共同的小勝利，凝聚家庭情感</h2>
-        <p>親子之間的情感連結，很大程度取決於「共享正向經驗的頻率」。皮克敏提供了大量這樣的時刻：</p>
-        <ul>
-          <li>第一次成功打倒大BOSS的那個晚上</li>
-          <li>找到隱藏的稀有寶物時的驚呼</li>
-          <li>Oatchi 升等後的喜悅</li>
-          <li>段取り挑戰得到高評鑑後的擊掌</li>
-        </ul>
-        <p>這些「我們一起做到了」的瞬間，是無法取代的家庭共同記憶。</p>
-
-        <h2>⏱ 理由五：遊戲節奏友善，不強迫「馬上繼續」</h2>
-        <ul>
-          <li>每一天的探索都有明確的結束時間（日落返回大本營）</li>
-          <li>遊戲內建「存檔並暫停」機制</li>
-          <li>不是即時對戰遊戲，不會因為暫停而影響他人</li>
-        </ul>
-        <p>這讓「今天玩到這裡」的對話變得容易，不會因為強行暫停遊戲而引發衝突。</p>
-
-        <h2>💚 理由六：皮克敏本身就是情感教育</h2>
-        <p>遊戲中的皮克敏是有「生命」的，他們會跟著你、信任你，也可能被怪物傷害。這種設計悄悄地教導孩子：</p>
-        <ul>
-          <li><strong>責任感</strong>——好好保護交託給你的夥伴</li>
-          <li><strong>多元共融</strong>——每種顏色的皮克敏都有獨特價值，缺一不可</li>
-          <li><strong>決策的後果</strong>——冒險進入危險區域，可能失去皮克敏，需要承擔選擇</li>
-        </ul>
-
-        <div class="tip-box">
-          <p class="tip-box-title">💬 結語</p>
-          <p>皮克敏提供的不只是娛樂，而是一個讓全家人共同投入、共同討論、共同成長的空間。每個週末的一小時皮克敏時光，可以成為孩子長大後記得的珍貴家庭記憶。</p>
+        <div class="reason-card anim anim-d2" style="border-left-color:#D94040">
+          <span class="reason-icon">🎮</span>
+          <div class="reason-title" style="color:#D94040">內建雙人合作</div>
+          <div class="reason-desc">同一台 Switch 雙人同框！不需要買第二台主機，沙發上一起玩！</div>
         </div>
-
-        <!-- ── 子段落：如何兼顧功課 ── -->
-        <h2>📚 和孩子一起玩，如何不影響功課？</h2>
-        <p>最常有家長問我：「讓孩子玩皮克敏，真的不會耽誤功課嗎？」我的回答是：<strong>不會，但前提是你有設計，而不是放任。</strong></p>
-
-        <h3>建立遊戲時間框架</h3>
-        <table>
-          <thead>
-            <tr><th>情境</th><th>建議遊戲時間</th><th>前提條件</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>平日（上課日）</td><td>30～45 分鐘</td><td>作業全部完成、預習/複習完畢</td></tr>
-            <tr><td>週末（非假日）</td><td>60～90 分鐘</td><td>上午學習任務完成</td></tr>
-            <tr><td>假日（連假）</td><td>最多 2 小時（分段）</td><td>家事分擔完成</td></tr>
-            <tr><td>考試前一週</td><td>暫停或降至 20 分鐘</td><td>複習進度達標後才可開機</td></tr>
-          </tbody>
-        </table>
-
-        <div class="tip-box">
-          <p class="tip-box-title">⏱ 關鍵原則：讓孩子自己計時</p>
-          <p>給孩子一個實體計時器（不是手機），讓他自己設定並在時間到時主動關機。這比家長催促更能培養自律能力，也避免了親子衝突。</p>
+        <div class="reason-card anim anim-d3" style="border-left-color:#2F69C2">
+          <span class="reason-icon">🧠</span>
+          <div class="reason-title" style="color:#2F69C2">鍛鍊段取り思維</div>
+          <div class="reason-desc">每關要規劃、分工、應對突發，和做功課、學才藝用的是同一種腦力！</div>
         </div>
-
-        <h3>設定每次遊戲的具體目標</h3>
-        <p>「隨便玩玩」是最容易失控的模式。每次打開遊戲前，先問孩子：「<strong>今天的目標是什麼？</strong>」</p>
-        <p>好的目標：「今天要清完 1 號區域的 3 個地下城」、「讓 Oatchi 學會潛水技能」<br>
-        不好的目標：「我要繼續玩」（模糊、沒有終止條件）</p>
-
-        <h3>讓遊戲連結學習</h3>
-        <ul>
-          <li><strong>數學：</strong>「你現在有 80 隻皮克敏，要搬這顆寶物要 30 隻、打怪要 20 隻，還剩多少？夠嗎？」</li>
-          <li><strong>規劃：</strong>「今天只剩 5 分鐘日落了，你打算先做什麼？為什麼？」</li>
-          <li><strong>日文漢字：</strong>如果孩子在學日文，讓他看日文字幕玩，是高效的情境學習</li>
-          <li><strong>段取り延伸：</strong>「今天功課要怎麼段取？先做哪一科？」</li>
-        </ul>
+        <div class="reason-card anim anim-d4" style="border-left-color:#E8B800">
+          <span class="reason-icon">💛</span>
+          <div class="reason-title" style="color:#9B7000">共同小勝利</div>
+          <div class="reason-desc">「我們一起打倒大 BOSS 了！」這種瞬間，比任何禮物都更珍貴。</div>
+        </div>
+        <div class="reason-card anim anim-d5" style="border-left-color:#7B4FBF">
+          <span class="reason-icon">⏱️</span>
+          <div class="reason-title" style="color:#7B4FBF">友善暫停節奏</div>
+          <div class="reason-desc">遊戲內建日落結束機制，隨時可存檔離開，不會被「再一關！」綁架。</div>
+        </div>
+        <div class="reason-card anim anim-d6" style="border-left-color:#E8932A">
+          <span class="reason-icon">💚</span>
+          <div class="reason-title" style="color:#B05800">無聲情感教育</div>
+          <div class="reason-desc">皮克敏是有生命的，教孩子責任感、珍惜每個夥伴、每種能力都不可少！</div>
+        </div>
       </div>
+
+      <!-- 角色分工 -->
+      <div class="subsection-title anim">👨‍👩‍👧 誰負責什麼？角色分工一目瞭然！</div>
+      <div class="role-grid">
+        <div class="role-card parent anim anim-d1">
+          <span class="role-icon">👨‍👩‍👧</span>
+          <div class="role-title" style="color:#2C6B2F">爸媽：主控者</div>
+          <ul class="role-tasks">
+            <li>控制主角移動方向</li>
+            <li>決定皮克敏去哪個任務</li>
+            <li>管理整體的段取り計畫</li>
+            <li>帶領大軍對抗 BOSS</li>
+          </ul>
+        </div>
+        <div class="role-card child anim anim-d2">
+          <span class="role-icon">🧒</span>
+          <div class="role-title" style="color:#A01010">孩子：合作者</div>
+          <ul class="role-tasks">
+            <li>用 Joy-Con 指針攻擊敵人</li>
+            <li>保護落水的皮克敏！</li>
+            <li>幫忙用道具解開難關</li>
+            <li>負責指揮 Oatchi 特攻！</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fun-tip-box green anim">
+        <div class="fun-tip-box-title">🎮 最佳分工秘訣</div>
+        <p>孩子的任務是「<strong>保護皮克敏不被吃掉</strong>」——這完全符合孩子保護小動物的本能！參與感超高，保證玩得很投入！</p>
+        <p>每到一個新地下城，可以<strong>換孩子當主控</strong>，讓他也有主導感。</p>
+      </div>
+
+      <!-- 不影響功課的時間設計 -->
+      <div class="subsection-title anim">📚 如何兼顧功課？時間設計很重要！</div>
+      <div class="time-grid">
+        <div class="time-card anim anim-d1" style="border-top-color:#3D8B37">
+          <span class="time-emoji">📚</span>
+          <div class="time-label">平日上課日</div>
+          <div class="time-duration">30–45 分</div>
+          <div class="time-cond">✅ 前提：作業全部完成 + 預習/複習完畢</div>
+        </div>
+        <div class="time-card anim anim-d2" style="border-top-color:#2F69C2">
+          <span class="time-emoji">🌤️</span>
+          <div class="time-label">週末非假日</div>
+          <div class="time-duration">60–90 分</div>
+          <div class="time-cond">✅ 前提：上午學習任務完成</div>
+        </div>
+        <div class="time-card anim anim-d3" style="border-top-color:#E8B800">
+          <span class="time-emoji">🎉</span>
+          <div class="time-label">連假假日</div>
+          <div class="time-duration">最多 2 小時</div>
+          <div class="time-cond">✅ 分段玩，前提：家事分擔完成</div>
+        </div>
+        <div class="time-card anim anim-d4" style="border-top-color:#D94040">
+          <span class="time-emoji">📝</span>
+          <div class="time-label">考試前一週</div>
+          <div class="time-duration">暫停或 20 分</div>
+          <div class="time-cond">✅ 前提：複習進度達標才可開機</div>
+        </div>
+      </div>
+
+      <!-- 遊戲連結學習 -->
+      <div class="subsection-title anim">🧩 邊玩邊學——讓遊戲變成課堂！</div>
+      <table class="score-table anim">
+        <thead>
+          <tr><th>科目</th><th>怎麼在遊戲裡練習</th><th>效果</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🔢 數學</td>
+            <td>「你有 80 隻皮克敏，搬寶物要 30 隻、打怪要 20 隻，還剩幾隻？」</td>
+            <td>加減乘除實戰應用</td>
+          </tr>
+          <tr>
+            <td>📋 規劃力</td>
+            <td>「還剩 5 分鐘日落，你打算先做哪個任務？為什麼？」</td>
+            <td>邏輯思維、段取り</td>
+          </tr>
+          <tr>
+            <td>🇯🇵 日文</td>
+            <td>切換日文字幕玩，讓孩子唸出看到的漢字</td>
+            <td>日文漢字情境學習</td>
+          </tr>
+          <tr>
+            <td>🗣️ 口說</td>
+            <td>「今天學了什麼新技能？講給爸媽聽！」</td>
+            <td>表達力、整理能力</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════
        段落三：遊戲攻略
-  ══════════════════════════════════════════════════ -->
+  ══════════════════════════════════════════════ -->
   <section id="tips" class="page-section section-tips anchor-target">
     <div class="page-section-inner">
-      <div class="page-section-header">
-        <div class="section-icon">🟡</div>
+
+      <div class="section-banner tips anim">
+        <div class="banner-icon">🟡</div>
         <div>
-          <h2 class="section-heading">一起玩不吵架！親子皮克敏合作攻略
-            <small>整理網路社群心得，找出合作最佳解</small>
-          </h2>
+          <div class="banner-title" style="color:#6B4A00">一起玩不吵架！合作攻略大公開</div>
+          <div class="banner-sub" style="color:#6B4A00">社群整理的親子合作最強秘訣 🤝</div>
         </div>
       </div>
 
-      <div class="page-content">
-        <p>「剛剛為什麼那樣做！浪費皮克敏！」——親子一起打電動，有時候比解謎更難的是「溝通」。整理了 Reddit、巴哈、Play Nintendo 論壇的心得，提煉出一套讓全家合作更順暢的皮克敏策略。</p>
-
-        <h2>👥 基本分工原則</h2>
-        <table>
-          <thead>
-            <tr><th>角色</th><th>誰擔任</th><th>主要任務</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>主控者</strong></td><td>較熟悉遊戲者（通常是爸媽）</td><td>指揮皮克敏大軍、推進主線任務</td></tr>
-            <tr><td><strong>合作者</strong></td><td>孩子或新手</td><td>Joy-Con 指針：攻擊敵人、保護落水皮克敏、使用道具</td></tr>
-            <tr><td><strong>Oatchi 指揮官</strong></td><td>輪流或固定一人</td><td>決定 Oatchi 的行動方向和技能使用時機</td></tr>
-          </tbody>
-        </table>
-
-        <h2>🤝 避免吵架的 5 個技巧</h2>
-
-        <h3>1. 說「我們」，不說「你」</h3>
-        <ul>
-          <li>❌「你為什麼把皮克敏帶去那邊！」</li>
-          <li>✅「我們下次試試先清左邊怎麼樣？」</li>
-        </ul>
-
-        <h3>2. 失敗後先讚美，再討論</h3>
-        <ul>
-          <li>❌「早說了不能那樣做……」</li>
-          <li>✅「這次我們撐了好久耶！下次試試用冰皮克敏先凍住它？」</li>
-        </ul>
-
-        <h3>3. 善用倒帶功能化解衝突</h3>
-        <p>遊戲內建「倒帶（Rewind Time）」功能（按 <em>−</em> 鍵），可以倒回幾秒鐘重試。出錯時：暫停→深呼吸→使用倒帶→一起討論這次怎麼做。倒帶不是作弊，是官方設計給新手（和家庭）的學習工具。</p>
-
-        <h3>4. 輪流主控，每個存檔點換人</h3>
-        <p>如果孩子想要「自己控制」，設定「存檔點換手制」：每進入一個新地下城，就換主控者。這樣兩個人都有足夠的主導感，不會因為一直是同一個人玩而感到不公平。</p>
-
-        <h3>5. 段取り計畫討論：開始前說，不是過程中吵</h3>
-        <p>進入每一關之前，花 2 分鐘做「段取り計畫討論」：「這關你覺得先做哪個任務比較好？我們要帶幾隻紅皮克敏？」事前計畫好，過程中就不需要即時爭論。</p>
-
-        <h2>⚡ 提升遊戲品質的合作技巧</h2>
-
-        <h3>分頭並行：最大化時間效率</h3>
-        <p>親子合作的優勢在於可以口語協調：「我去打右邊的怪，你把這批皮克敏帶去搬左邊的寶物」。兩個人的眼睛等於兩倍的地圖覆蓋，比一個人獨玩效率高很多。</p>
-
-        <h3>Oatchi 技能優先序（社群攻略整理）</h3>
-        <ol>
-          <li><strong>搶救</strong>（Pull Pikmin from Leaves）——最常用，必優先升</li>
-          <li><strong>潛水</strong>（Swim）——解鎖水域地圖，跳過很多限制</li>
-          <li><strong>爆炸衝刺</strong>（Rush Attack）——大幅提升戰鬥效率</li>
-          <li><strong>超大嘴巴</strong>（Chomp Attack）——一口消滅弱怪，省時間</li>
-        </ol>
-
-        <h2>⚠️ 常見衝突場景與解法</h2>
-        <table>
-          <thead>
-            <tr><th>場景</th><th>衝突原因</th><th>解法</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>皮克敏被全滅</td><td>互相責怪</td><td>先用倒帶，之後再討論</td></tr>
-            <tr><td>進度太慢</td><td>新手操作不熟</td><td>降低難度或讓新手專注單一任務</td></tr>
-            <tr><td>意見不合</td><td>沒有事前計畫</td><td>引入「段取り討論」機制</td></tr>
-            <tr><td>孩子想一直玩</td><td>沒有明確結束條件</td><td>開始前設定「今天的目標」</td></tr>
-          </tbody>
-        </table>
-
-        <div class="tip-box">
-          <p class="tip-box-title">💬 核心心法</p>
-          <p>一起玩不吵架的秘訣，和職場合作、家庭溝通的秘訣是一樣的：<strong>事前對齊目標、過程中互相尊重、失敗後一起覆盤</strong>。皮克敏只是提供了一個讓你們練習這些技能的舞台。</p>
+      <!-- 不吵架5秘訣 -->
+      <div class="subsection-title anim">🏆 不吵架的 5 個黃金秘訣</div>
+      <div class="rule-cards">
+        <div class="rule-card anim">
+          <div class="rule-icon-box" style="background:#EEF5FF">💬</div>
+          <div class="rule-body">
+            <h4>說「我們」，不說「你」！</h4>
+            <p>把批評變成一起討論，合作氣氛立刻不同。</p>
+            <div class="vs-pair">
+              <span class="vs-bad">❌ 你為什麼那樣做！</span>
+              <span class="vs-arrow">→</span>
+              <span class="vs-good">✅ 我們下次試試先清左邊怎樣？</span>
+            </div>
+          </div>
+        </div>
+        <div class="rule-card anim anim-d1">
+          <div class="rule-icon-box" style="background:#FFF4F4">👏</div>
+          <div class="rule-body">
+            <h4>失敗先讚美，再討論！</h4>
+            <p>先肯定對方的努力，再一起想改進方法。</p>
+            <div class="vs-pair">
+              <span class="vs-bad">❌ 早說了不能那樣做……</span>
+              <span class="vs-arrow">→</span>
+              <span class="vs-good">✅ 這次撐很久！下次試冰皮克敏？</span>
+            </div>
+          </div>
+        </div>
+        <div class="rule-card anim anim-d2">
+          <div class="rule-icon-box" style="background:#FFFCE0">⏪</div>
+          <div class="rule-body">
+            <h4>善用「倒帶功能」化解衝突！</h4>
+            <p>遊戲內建倒帶（按 <strong>−</strong> 鍵），出錯可以倒回幾秒。這不是作弊——是官方為親子設計的！</p>
+            <p>流程：<strong>暫停 → 深呼吸 → 倒帶 → 一起討論這次怎麼做</strong></p>
+          </div>
+        </div>
+        <div class="rule-card anim anim-d3">
+          <div class="rule-icon-box" style="background:#F6F0FF">🔄</div>
+          <div class="rule-body">
+            <h4>輪流主控，存檔點換手！</h4>
+            <p>每進一個新地下城就換主控者，兩個人都有主導感，不會覺得「都是你在玩！」</p>
+          </div>
+        </div>
+        <div class="rule-card anim anim-d4">
+          <div class="rule-icon-box" style="background:#EAF5E0">🗺️</div>
+          <div class="rule-body">
+            <h4>開始前先做段取り計畫！</h4>
+            <p>進每一關之前，花 2 分鐘討論：「先做哪個任務？帶幾隻紅皮克敏？」說好了，過程就不用即時吵架！</p>
+          </div>
         </div>
       </div>
+
+      <!-- 角色分工表 -->
+      <div class="subsection-title anim">👥 合作角色分工表</div>
+      <table class="score-table anim">
+        <thead>
+          <tr><th>角色</th><th>誰來擔任</th><th>主要任務</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🕹️ 主控者</td>
+            <td>較熟悉遊戲者（通常爸媽）</td>
+            <td>指揮皮克敏大軍、推進主線任務</td>
+          </tr>
+          <tr>
+            <td>🎯 合作者</td>
+            <td>孩子或新手</td>
+            <td>Joy-Con 指針攻擊、保護落水皮克敏、使用道具</td>
+          </tr>
+          <tr>
+            <td>🐕 Oatchi 指揮</td>
+            <td>輪流或固定一人</td>
+            <td>決定 Oatchi 行動方向與技能使用時機</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Oatchi 技能優先 -->
+      <div class="subsection-title anim">🐕 Oatchi 技能解鎖順序——社群攻略推薦！</div>
+      <div class="oatchi-grid">
+        <div class="oatchi-card anim anim-d1" style="border-top-color:#D94040">
+          <div class="oatchi-rank">第 1 優先</div>
+          <span class="oatchi-num" style="color:#D94040">🌱</span>
+          <div class="oatchi-emoji">🌿</div>
+          <div class="oatchi-skill">搶救技能</div>
+          <div class="oatchi-why">最常用！立刻救出土裡的皮克敏，必學！</div>
+        </div>
+        <div class="oatchi-card anim anim-d2" style="border-top-color:#2F69C2">
+          <div class="oatchi-rank">第 2 優先</div>
+          <span class="oatchi-num" style="color:#2F69C2">🌊</span>
+          <div class="oatchi-emoji">💧</div>
+          <div class="oatchi-skill">潛水技能</div>
+          <div class="oatchi-why">解鎖水域地圖，跳過很多限制，超值！</div>
+        </div>
+        <div class="oatchi-card anim anim-d3" style="border-top-color:#D94040">
+          <div class="oatchi-rank">第 3 優先</div>
+          <span class="oatchi-num" style="color:#D94040">💥</span>
+          <div class="oatchi-emoji">🔥</div>
+          <div class="oatchi-skill">爆炸衝刺</div>
+          <div class="oatchi-why">戰鬥效率大幅提升，打 BOSS 超好用！</div>
+        </div>
+        <div class="oatchi-card anim anim-d4" style="border-top-color:#7B4FBF">
+          <div class="oatchi-rank">第 4 優先</div>
+          <span class="oatchi-num" style="color:#7B4FBF">👄</span>
+          <div class="oatchi-emoji">⚡</div>
+          <div class="oatchi-skill">超大嘴巴</div>
+          <div class="oatchi-why">一口吃掉弱怪，省大量時間！</div>
+        </div>
+      </div>
+
+      <!-- 常見衝突Q&A -->
+      <div class="subsection-title anim">❓ 常見問題快問快答</div>
+      <div class="qa-list">
+        <div class="qa-card anim">
+          <div class="qa-q">皮克敏被全滅了，互相責怪怎麼辦？</div>
+          <div class="qa-a">先<strong>按 − 鍵倒帶</strong>回去，然後一起討論「剛才哪一步可以不一樣？」失敗是最好的學習機會！</div>
+        </div>
+        <div class="qa-card anim anim-d1">
+          <div class="qa-q">孩子操作不熟，進度太慢怎麼辦？</div>
+          <div class="qa-a">可以在選單<strong>降低遊戲難度</strong>，或讓孩子只負責「單一任務」——例如專心保護皮克敏，不用同時做很多事。</div>
+        </div>
+        <div class="qa-card anim anim-d2">
+          <div class="qa-q">意見不合，誰說了算？</div>
+          <div class="qa-a">引入<strong>「段取り討論」</strong>機制——開始前花 2 分鐘說好計畫。過程中就按計畫走，不用即時爭論！</div>
+        </div>
+        <div class="qa-card anim anim-d3">
+          <div class="qa-q">孩子想一直玩，不肯停怎麼辦？</div>
+          <div class="qa-a">開始前就設定「<strong>今天的目標</strong>」：「清完這個地下城就存檔！」目標完成後自然結束，比規定時間有效。</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════
        段落四：時間規劃
-  ══════════════════════════════════════════════════ -->
+  ══════════════════════════════════════════════ -->
   <section id="schedule" class="page-section section-schedule anchor-target">
     <div class="page-section-inner">
-      <div class="page-section-header">
-        <div class="section-icon">🟣</div>
+
+      <div class="section-banner schedule anim">
+        <div class="banner-icon">🟣</div>
         <div>
-          <h2 class="section-heading">設計獎勵機制：讓孩子兼顧功課與遊戲
-            <small>可直接套用的積分表與獎勵架構</small>
-          </h2>
+          <div class="banner-title" style="color:#4A1A8A">設計獎勵機制讓孩子自動自發！</div>
+          <div class="banner-sub" style="color:#4A1A8A">🌸「皮克敏之花」積分系統完整版</div>
         </div>
       </div>
 
-      <div class="page-content">
-        <p>「功課做完才可以玩」這句話，每個家長都說過，但執行起來往往變成拉鋸戰。問題不在規則本身，而在於<strong>規則沒有被設計成讓孩子有動力主動遵守</strong>。</p>
+      <div class="fun-tip-box red anim">
+        <div class="fun-tip-box-title" style="color:#8A1010">⚠️ 重要！先搞清楚這件事</div>
+        <p><strong>遊戲是獎勵，不是懲罰的武器！</strong></p>
+        <p>很多爸媽說「再不做功課就不准玩！」——這樣會讓孩子更想玩（禁果效應），還讓親子關係從合作變成對抗。</p>
+        <p>正確方法：<strong>「做完任務，自然獲得遊戲時間」</strong>，讓孩子有動力主動完成！</p>
+      </div>
 
-        <div class="warn-box">
-          <strong>⚠️ 先釐清一件事：遊戲是獎勵，不是懲罰的籌碼</strong><br>
-          很多家長把遊戲當成「威脅工具」：「再不做功課就不准玩！」這種做法加深孩子對遊戲的渴望（禁果效應），並讓親子關係從合作變成對抗。
-          正確框架是：<strong>遊戲是完成任務後自然獲得的獎勵</strong>，而不是沒完成任務時被拿走的東西。
+      <!-- 積分獲得 -->
+      <div class="subsection-title anim">🌸 積分怎麼得？——每天都可以種花！</div>
+      <table class="score-table anim">
+        <thead>
+          <tr><th>任務類型</th><th>具體任務內容</th><th>積分</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>📚 基礎任務<br><small style="font-weight:400;color:var(--text-muted)">每日必做</small></td>
+            <td>完成所有學校作業</td>
+            <td><span class="score-badge">+10 分</span></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>自行預習或複習 20 分鐘</td>
+            <td><span class="score-badge">+5 分</span></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>完成指定家事（洗碗、整理房間）</td>
+            <td><span class="score-badge">+5 分</span></td>
+          </tr>
+          <tr>
+            <td>⭐ 加分任務<br><small style="font-weight:400;color:var(--text-muted)">選擇性</small></td>
+            <td>閱讀課外書 20 分鐘</td>
+            <td><span class="score-badge bonus">+5 分</span></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>向家人講解今天學了什麼（5 分鐘）</td>
+            <td><span class="score-badge bonus">+8 分</span></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>主動完成一件沒被要求的事</td>
+            <td><span class="score-badge bonus">+10 分</span></td>
+          </tr>
+          <tr>
+            <td>🏆 里程碑</td>
+            <td>考試成績達標（事前一起協商標準！）</td>
+            <td><span class="score-badge big">+50 分</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 獎勵兌換圖卡 -->
+      <div class="subsection-title anim">🎁 積分可以換什麼？</div>
+      <div class="reward-grid">
+        <div class="reward-card anim anim-d1">
+          <span class="reward-flowers">🌸</span>
+          <span class="reward-pts">15<span class="reward-pts-unit"> 分</span></span>
+          <div class="reward-item">30 分鐘皮克敏遊戲時間</div>
         </div>
-
-        <h2>🌸「皮克敏之花」積分系統</h2>
-        <p>我們設計了一個以皮克敏為主題的積分系統，讓孩子感覺自己在「種花養花」，而不是在被管理。</p>
-
-        <h3>積分獲得方式</h3>
-        <table>
-          <thead>
-            <tr><th>任務類型</th><th>具體任務</th><th>積分</th></tr>
-          </thead>
-          <tbody>
-            <tr><td rowspan="3"><strong>基礎任務</strong>（每日必做）</td><td>完成所有學校作業</td><td>10 分</td></tr>
-            <tr><td>自行預習或複習 20 分鐘</td><td>5 分</td></tr>
-            <tr><td>完成指定家事（洗碗/整理房間）</td><td>5 分</td></tr>
-            <tr><td rowspan="3"><strong>加分任務</strong>（選擇性）</td><td>閱讀課外書 20 分鐘</td><td>5 分</td></tr>
-            <tr><td>向家人講解今天學了什麼（5 分鐘）</td><td>8 分</td></tr>
-            <tr><td>主動完成一件沒被要求的事</td><td>10 分</td></tr>
-            <tr><td><strong>里程碑</strong></td><td>考試成績達標（事前協商標準）</td><td>50 分</td></tr>
-          </tbody>
-        </table>
-
-        <h3>積分兌換方式</h3>
-        <table>
-          <thead>
-            <tr><th>積分</th><th>可兌換的獎勵</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>15 分</td><td>30 分鐘皮克敏遊戲時間</td></tr>
-            <tr><td>30 分</td><td>1 小時遊戲時間（超過平日上限的特權）</td></tr>
-            <tr><td>50 分</td><td>週末特別遊戲日（加碼 30 分鐘）</td></tr>
-            <tr><td>80 分</td><td>由孩子決定下一個遊戲時間「玩什麼」的主導權</td></tr>
-            <tr><td>150 分</td><td>家長陪玩「特別場」（爸媽全程配合孩子策略）</td></tr>
-            <tr><td>300 分</td><td>購買一個皮克敏周邊商品（事前確認預算）</td></tr>
-          </tbody>
-        </table>
-
-        <div class="tip-box">
-          <p class="tip-box-title">🌸「皮克敏之花」視覺化技巧</p>
-          <p>準備一張貼在冰箱上的記錄表——每得 10 分，就讓孩子在表格上畫一朵花。視覺化的進度讓孩子更有成就感，也讓積分制度更透明。</p>
+        <div class="reward-card anim anim-d2">
+          <span class="reward-flowers">🌸🌸</span>
+          <span class="reward-pts">30<span class="reward-pts-unit"> 分</span></span>
+          <div class="reward-item">1 小時遊戲時間（超過平日上限的特權！）</div>
         </div>
-
-        <h2>🔑 讓系統不崩潰的三個關鍵</h2>
-
-        <ol class="step-list">
-          <li>
-            <div>
-              <strong>讓孩子參與制定規則</strong><br>
-              系統建立前，和孩子一起討論：「你覺得做功課應該得幾分？」「30 分鐘皮克敏你覺得要幾分才合理？」孩子參與設計的規則，遵守意願是單方決定規則的 3 倍。
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>使用「預支」而非「扣分」</strong><br>
-              當孩子積分不夠但很想玩時，不要扣分或懲罰，改用「預支」：「今天可以預支明天的積分，明天就要多完成一個加分任務來還。」這讓孩子學習承擔後果，而不是感受到懲罰。
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>獎勵要即時，不要「以後再說」</strong><br>
-              孩子兌換積分時，立刻兌現。「等一下」、「改天」會讓整個系統失去公信力。建議設定固定的「週結算時間」（例如週日晚餐後），讓孩子兌換本週積分，並規劃下週的遊戲時間。
-            </div>
-          </li>
-        </ol>
-
-        <h2>❓ 常見Q&A</h2>
-
-        <h3>Q：孩子說「不公平，別的小朋友都可以一直玩」怎麼辦？</h3>
-        <p><strong>A：</strong>「每個家庭有不同的方式。我們家的方式是讓你學會段取り——先計畫好，再享受。這樣長大後你會比別人更知道如何管理自己的時間。」然後讓話題回到下次遊戲的期待上，而不是辯論公平性。</p>
-
-        <h3>Q：孩子用很多時間磨蹭，快速「做完」作業只為了趕快玩怎麼辦？</h3>
-        <p><strong>A：</strong>把積分條件從「完成」改成「完成＋品質」。例如：「作業全部做完 ＋8 分，媽媽檢查沒有錯誤可以多＋2 分。」讓孩子理解品質也是條件的一部分。</p>
-
-        <h3>Q：考試前孩子說「就玩一下下，放鬆一下」怎麼辦？</h3>
-        <p><strong>A：</strong>事前協議：「考試前 3 天，每完成 1 小時複習可以玩 20 分鐘。你同意嗎？」讓孩子參與協商，而不是被動接受限制。</p>
-
-        <div class="tip-box">
-          <p class="tip-box-title">🎯 最終目標</p>
-          <p>最好的獎勵機制，是讓孩子逐漸不再需要它。當孩子某天主動說「我先把功課做完，再來玩皮克敏，這樣比較安心」——那就是段取り思維真正內化的時刻。那個時刻，比任何遊戲成就都更值得慶祝。</p>
+        <div class="reward-card anim anim-d3">
+          <span class="reward-flowers">🌸🌸🌸</span>
+          <span class="reward-pts">50<span class="reward-pts-unit"> 分</span></span>
+          <div class="reward-item">週末特別遊戲日（加碼 30 分鐘！）</div>
+        </div>
+        <div class="reward-card anim anim-d4">
+          <span class="reward-flowers">🌺🌺</span>
+          <span class="reward-pts">80<span class="reward-pts-unit"> 分</span></span>
+          <div class="reward-item">由孩子決定「玩什麼」的主導權！</div>
+        </div>
+        <div class="reward-card anim anim-d5">
+          <span class="reward-flowers">🌺🌺🌺</span>
+          <span class="reward-pts">150<span class="reward-pts-unit"> 分</span></span>
+          <div class="reward-item">家長陪玩「特別場」——爸媽全程配合孩子策略！</div>
+        </div>
+        <div class="reward-card anim anim-d6">
+          <span class="reward-flowers">🌟🌟🌟</span>
+          <span class="reward-pts">300<span class="reward-pts-unit"> 分</span></span>
+          <div class="reward-item">購買一個皮克敏周邊（事前確認預算）</div>
         </div>
       </div>
+
+      <div class="fun-tip-box green anim">
+        <div class="fun-tip-box-title">🌸「皮克敏之花」視覺化秘訣</div>
+        <p>貼一張記錄表在冰箱上——每得 <strong>10 分就讓孩子畫一朵花 🌸</strong>。</p>
+        <p>看著花越來越多，孩子的成就感超強，而且積分制度完全透明，不會有「爸媽說話不算數」的問題！</p>
+      </div>
+
+      <!-- 三大原則 -->
+      <div class="subsection-title anim">🔑 讓系統不崩潰的三個關鍵</div>
+      <div class="principle-cards">
+        <div class="principle-card anim">
+          <div class="principle-num" style="background:#3D8B37">1</div>
+          <div class="principle-body">
+            <h4>讓孩子一起制定規則！</h4>
+            <p>問孩子：「你覺得做功課應該得幾分？30 分鐘皮克敏要幾分才合理？」
+            孩子參與設計的規則，遵守意願是大人決定的 <strong>3 倍</strong>！</p>
+          </div>
+        </div>
+        <div class="principle-card anim anim-d1">
+          <div class="principle-num" style="background:#2F69C2">2</div>
+          <div class="principle-body">
+            <h4>用「預支」不用「扣分」！</h4>
+            <p>積分不夠但很想玩時，讓孩子「<strong>預支明天的積分</strong>」——明天就要多完成一個加分任務來還。
+            孩子學到的是「承擔後果」，不是「被懲罰的感覺」！</p>
+          </div>
+        </div>
+        <div class="principle-card anim anim-d2">
+          <div class="principle-num" style="background:#7B4FBF">3</div>
+          <div class="principle-body">
+            <h4>獎勵要即時，不要「以後再說」！</h4>
+            <p>孩子兌換積分時，<strong>立刻兌現</strong>。「等一下」、「改天」會讓整個系統失去公信力。
+            建議設定<strong>週日晚餐後</strong>當固定結算時間！</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q&A -->
+      <div class="subsection-title anim">❓ 爸媽最常問的問題</div>
+      <div class="qa-list">
+        <div class="qa-card anim">
+          <div class="qa-q">孩子說「不公平，別人都可以一直玩」怎麼辦？</div>
+          <div class="qa-a">跟孩子說：「每個家庭有不同的方式。我們家的方式是讓你學會<strong>段取り</strong>——先計畫好，再享受。這樣長大後你會比別人更會管理自己。」然後把話題帶到下次遊戲的期待，而不是辯論公平！</div>
+        </div>
+        <div class="qa-card anim anim-d1">
+          <div class="qa-q">孩子快速草草「做完」作業只為了趕快玩怎麼辦？</div>
+          <div class="qa-a">把積分條件加上品質：「作業全做完 <strong>+8 分</strong>，媽媽/爸爸檢查沒有錯誤再多 <strong>+2 分</strong>」。讓孩子明白，品質也是條件的一部分！</div>
+        </div>
+        <div class="qa-card anim anim-d2">
+          <div class="qa-q">考試前孩子說「就玩一下下，放鬆一下」怎麼辦？</div>
+          <div class="qa-a">事前一起協議：「考試前 3 天，每完成 <strong>1 小時複習可以玩 20 分鐘</strong>，你同意嗎？」讓孩子參與協商，不是被動接受限制——感覺完全不同！</div>
+        </div>
+      </div>
+
+      <div class="fun-tip-box yellow anim">
+        <div class="fun-tip-box-title" style="color:#6B4A00">🎯 最終目標——讓孩子不再需要獎勵系統！</div>
+        <p>當孩子某天<strong>主動說「我先把功課做完，再來玩皮克敏，這樣比較安心」</strong>——那就是段取り思維真正內化的時刻。</p>
+        <p>那個瞬間，比任何遊戲成就都更值得慶祝！🎉</p>
+      </div>
+
     </div>
   </section>
 

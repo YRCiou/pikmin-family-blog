@@ -89,11 +89,27 @@ async function loadArticlePage() {
   displayCount(count, '.view-count');
 }
 
+// ── 捲動淡入動畫 ─────────────────────────────────────
+function initScrollAnimations() {
+  const els = document.querySelectorAll('.anim');
+  if (!els.length) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => obs.observe(el));
+}
+
 // ── 入口 ─────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initSupabase();
   initSectionNav();
   initBackToTop();
+  initScrollAnimations();
 
   if (document.body.dataset.page === 'index') {
     loadIndexPage();
