@@ -2,11 +2,40 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js-enabled');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="親子共遊皮克敏——帶著孩子一起探索皮克敏的世界，邊玩邊學「段取り」思維，創造屬於全家人的遊戲回憶。">
+  <link rel="canonical" href="https://pikmin-family-blog.pages.dev/">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="親子共遊皮克敏">
+  <meta property="og:title" content="親子共遊皮克敏 | 探索、成長、歡笑的家庭冒險">
+  <meta property="og:description" content="帶著孩子一起探索皮克敏的世界，邊玩邊學「段取り」思維，創造屬於全家人的遊戲回憶。">
+  <meta property="og:url" content="https://pikmin-family-blog.pages.dev/">
+  <meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:Redirect/file/InclusiveGameLab_Person-Playing-Nintendo-Switch_3_CC-BY-SA.jpg">
+  <meta property="og:image:alt" content="家人一起玩任天堂 Switch">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="親子共遊皮克敏 | 探索、成長、歡笑的家庭冒險">
+  <meta name="twitter:description" content="帶著孩子一起探索皮克敏的世界，邊玩邊學「段取り」思維，創造屬於全家人的遊戲回憶。">
+  <meta name="twitter:image" content="https://commons.wikimedia.org/wiki/Special:Redirect/file/InclusiveGameLab_Person-Playing-Nintendo-Switch_3_CC-BY-SA.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "親子共遊皮克敏",
+  "url": "https://pikmin-family-blog.pages.dev/",
+  "description": "帶著孩子一起探索皮克敏的世界，邊玩邊學「段取り」思維，創造屬於全家人的遊戲回憶。",
+  "inLanguage": "zh-TW"
+}
+</script>
   <title>親子共遊皮克敏 | 探索、成長、歡笑的家庭冒險</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
   <link rel="stylesheet" href="/css/style.css">
   <style>
     .page-section { padding: var(--space-2xl) 0; border-bottom: 3px dashed var(--card-border); }
@@ -20,7 +49,7 @@
 <body data-page="index">
 
   <!-- ── 頂部導覽 ── -->
-  <nav class="site-nav">
+  <nav class="site-nav" aria-label="主要導覽">
     <div class="site-nav-inner">
       <a href="/" class="site-logo">
         <span class="site-logo-icon">🌿</span>
@@ -50,7 +79,7 @@
     <div class="hero-inner">
       <div class="hero-kicker">🍄 皮克敏親子部落格</div>
       <h1>親子共遊皮克敏<br>探索、成長、歡笑！</h1>
-      <p class="hero-sub">帶著孩子一起認識皮克敏，邊玩邊學「段取り」思維，創造全家人的遊戲回憶 🌱</p>
+      <p class="hero-sub">帶著孩子一起認識皮克敏，邊玩邊學「段取り」（日文：先想好步驟再行動）思維，創造全家人的遊戲回憶 🌱</p>
       <div class="hero-counter">
         🌱 本站已被 <span class="view-count">—</span> 個家庭探訪
       </div>
@@ -91,35 +120,40 @@
       <div class="subsection-title anim">🌈 認識皮克敏家族——每種都有超能力！</div>
       <div class="pikmin-grid">
         <div class="pikmin-card p-red anim anim-d1">
-          <div class="p-dot"></div>
+          <div class="p-dot" aria-hidden="true"></div>
           <span class="p-name">紅皮克敏</span>
           <span class="p-skill">💪 攻擊力最強<br>🔥 不怕火焰</span>
         </div>
         <div class="pikmin-card p-yellow anim anim-d2">
-          <div class="p-dot"></div>
+          <div class="p-dot" aria-hidden="true"></div>
           <span class="p-name">黃皮克敏</span>
-          <span class="p-skill">⚡ 不怕電擊<br>🎯 可以丟炸彈</span>
+          <span class="p-skill">⚡ 不怕電擊<br>🆙 可被拋得更高</span>
         </div>
         <div class="pikmin-card p-blue anim anim-d3">
-          <div class="p-dot"></div>
+          <div class="p-dot" aria-hidden="true"></div>
           <span class="p-name">藍皮克敏</span>
           <span class="p-skill">🏊 水中最強<br>🌊 完全抗水</span>
         </div>
         <div class="pikmin-card p-ice anim anim-d4">
-          <div class="p-dot"></div>
+          <div class="p-dot" aria-hidden="true"></div>
           <span class="p-name">冰皮克敏</span>
           <span class="p-skill">🧊 凍住敵人<br>❄️ 完全抗寒</span>
         </div>
         <div class="pikmin-card p-purple anim anim-d5">
-          <div class="p-dot"></div>
+          <div class="p-dot" aria-hidden="true"></div>
           <span class="p-name">紫皮克敏</span>
           <span class="p-skill">🏋️ 超強大力士<br>💥 10倍重量</span>
         </div>
         <div class="pikmin-card p-oatchi anim anim-d6">
-          <div class="p-dot"></div>
+          <div class="p-dot" aria-hidden="true"></div>
           <span class="p-name">Oatchi</span>
           <span class="p-skill">🐾 拯救犬夥伴<br>✨ 多種特殊技能</span>
         </div>
+      </div>
+
+      <div class="fun-tip-box green anim">
+        <div class="fun-tip-box-title">💡 皮克敏4其實有 9 種！</div>
+        <p>除了上面介紹的5種外，還有：<strong>白皮克敏</strong>（速度最快、抗毒）、<strong>岩石皮克敏</strong>（可破水晶障礙、不被踩死）、<strong>翼皮克敏</strong>（可以飛行）、以及限定夜間任務才會出現的<strong>螢光皮克敏</strong>！</p>
       </div>
 
       <!-- 入門四步驟 -->
@@ -153,6 +187,7 @@
 
       <!-- 一個月計畫表 -->
       <div class="subsection-title anim">📅 一個月入門計畫表</div>
+      <div class="table-scroll-wrap">
       <table class="score-table anim">
         <thead>
           <tr><th>第幾週</th><th>做什麼</th><th>目標</th></tr>
@@ -180,6 +215,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <div class="fun-tip-box green anim">
         <div class="fun-tip-box-title">🌿 小小秘訣</div>
@@ -210,7 +246,7 @@
         <div class="reason-card anim anim-d1" style="border-left-color:#3D8B37">
           <span class="reason-icon">🛡️</span>
           <div class="reason-title" style="color:#3D8B37">全年齡完全安全</div>
-          <div class="reason-desc">普遍級評定，無血腥、無賭博、無不雅語言。卡通風格，孩子不怕！</div>
+          <div class="reason-desc">ESRB「E（Everyone）」全年齡適合、台灣任天堂官方分級「輔6+」。無血腥、無賭博、無不雅語言。卡通風格，孩子不怕！</div>
         </div>
         <div class="reason-card anim anim-d2" style="border-left-color:#D94040">
           <span class="reason-icon">🎮</span>
@@ -256,10 +292,10 @@
           <span class="role-icon">🧒</span>
           <div class="role-title" style="color:#A01010">孩子：合作者</div>
           <ul class="role-tasks">
-            <li>用 Joy-Con 指針攻擊敵人</li>
-            <li>保護落水的皮克敏！</li>
-            <li>幫忙用道具解開難關</li>
-            <li>負責指揮 Oatchi 特攻！</li>
+            <li>當「鵝卵石投手」——搖 Joy-Con 瞄準後放開，遠距攻擊敵人</li>
+            <li>投出紅蘿蔔道具暈眩敵人（按道具鍵選擇，一個按鍵就能用）</li>
+            <li>幫忙加速皮克敏搬運物品（對著寶物按 A 鍵吹哨子集合）</li>
+            <li>負責指揮 Oatchi 特攻！（按 B 鍵讓 Oatchi 衝刺）</li>
           </ul>
         </div>
       </div>
@@ -301,6 +337,7 @@
 
       <!-- 遊戲連結學習 -->
       <div class="subsection-title anim">🧩 邊玩邊學——讓遊戲變成課堂！</div>
+      <div class="table-scroll-wrap">
       <table class="score-table anim">
         <thead>
           <tr><th>科目</th><th>怎麼在遊戲裡練習</th><th>效果</th></tr>
@@ -328,6 +365,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
     </div>
   </section>
@@ -377,7 +415,7 @@
           <div class="rule-icon-box" style="background:#FFFCE0">⏪</div>
           <div class="rule-body">
             <h4>善用「倒帶功能」化解衝突！</h4>
-            <p>遊戲內建倒帶（按 <strong>−</strong> 鍵），出錯可以倒回幾秒。這不是作弊——是官方為親子設計的！</p>
+            <p>遊戲內建倒帶（按 <strong>−</strong> 鍵進入選單），可以選擇倒回到幾分鐘前甚至當天的起始點。這不是作弊——是官方為親子設計的！</p>
             <p>流程：<strong>暫停 → 深呼吸 → 倒帶 → 一起討論這次怎麼做</strong></p>
           </div>
         </div>
@@ -399,6 +437,7 @@
 
       <!-- 角色分工表 -->
       <div class="subsection-title anim">👥 合作角色分工表</div>
+      <div class="table-scroll-wrap">
       <table class="score-table anim">
         <thead>
           <tr><th>角色</th><th>誰來擔任</th><th>主要任務</th></tr>
@@ -412,7 +451,7 @@
           <tr>
             <td>🎯 合作者</td>
             <td>孩子或新手</td>
-            <td>Joy-Con 指針攻擊、保護落水皮克敏、使用道具</td>
+            <td>Joy-Con 指針投擲石子攻擊敵人、使用道具支援搬運</td>
           </tr>
           <tr>
             <td>🐕 Oatchi 指揮</td>
@@ -421,37 +460,42 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <!-- Oatchi 技能優先 -->
       <div class="subsection-title anim">🐕 Oatchi 技能解鎖順序——社群攻略推薦！</div>
+      <div class="fun-tip-box anim" style="background:#f0f8ff;border-left:4px solid #2F69C2;margin-bottom:var(--space-m)">
+        <div class="fun-tip-box-title" style="color:#2F69C2">💡 Oatchi 是誰？什麼時候加入？</div>
+        <p>Oatchi 是主角的夥伴犬，<strong>皮克敏4開場不久（約第一個地下城通關後）就會正式加入</strong>，之後全程陪同。可以騎著 Oatchi 在地圖上移動，也可以讓他當「另一支部隊」分頭行動！技能升級需要在基地用收集到的點數購買。</p>
+      </div>
       <div class="oatchi-grid">
-        <div class="oatchi-card anim anim-d1" style="border-top-color:#D94040">
+        <div class="oatchi-card anim anim-d1" style="border-top-color:#3D8B37">
           <div class="oatchi-rank">第 1 優先</div>
-          <span class="oatchi-num" style="color:#D94040">🌱</span>
-          <div class="oatchi-emoji">🌿</div>
-          <div class="oatchi-skill">搶救技能</div>
-          <div class="oatchi-why">最常用！立刻救出土裡的皮克敏，必學！</div>
+          <span class="oatchi-num" style="color:#3D8B37">💪</span>
+          <div class="oatchi-emoji">📦</div>
+          <div class="oatchi-skill">Buff 搬運強化</div>
+          <div class="oatchi-why">從頭到尾都有用！提升 Oatchi 攜帶力，全攻略第一推薦！</div>
         </div>
         <div class="oatchi-card anim anim-d2" style="border-top-color:#2F69C2">
           <div class="oatchi-rank">第 2 優先</div>
-          <span class="oatchi-num" style="color:#2F69C2">🌊</span>
-          <div class="oatchi-emoji">💧</div>
-          <div class="oatchi-skill">潛水技能</div>
-          <div class="oatchi-why">解鎖水域地圖，跳過很多限制，超值！</div>
+          <span class="oatchi-num" style="color:#2F69C2">📡</span>
+          <div class="oatchi-emoji">🏠</div>
+          <div class="oatchi-skill">Command 指令</div>
+          <div class="oatchi-why">讓 Oatchi 自動回基地，同時分工跑兩條線，效率倍增！</div>
         </div>
         <div class="oatchi-card anim anim-d3" style="border-top-color:#D94040">
           <div class="oatchi-rank">第 3 優先</div>
           <span class="oatchi-num" style="color:#D94040">💥</span>
           <div class="oatchi-emoji">🔥</div>
-          <div class="oatchi-skill">爆炸衝刺</div>
-          <div class="oatchi-why">戰鬥效率大幅提升，打 BOSS 超好用！</div>
+          <div class="oatchi-skill">Rush 爆炸衝刺</div>
+          <div class="oatchi-why">強力衝鋒攻擊，Lv3 可一擊擊倒普通敵人！</div>
         </div>
         <div class="oatchi-card anim anim-d4" style="border-top-color:#7B4FBF">
           <div class="oatchi-rank">第 4 優先</div>
           <span class="oatchi-num" style="color:#7B4FBF">👄</span>
           <div class="oatchi-emoji">⚡</div>
-          <div class="oatchi-skill">超大嘴巴</div>
-          <div class="oatchi-why">一口吃掉弱怪，省大量時間！</div>
+          <div class="oatchi-skill">Big Chomp 大嘴巴</div>
+          <div class="oatchi-why">連空中敵人都能一口吃！Lv1 就超好用！</div>
         </div>
       </div>
 
@@ -502,6 +546,7 @@
 
       <!-- 積分獲得 -->
       <div class="subsection-title anim">🌸 積分怎麼得？——每天都可以種花！</div>
+      <div class="table-scroll-wrap">
       <table class="score-table anim">
         <thead>
           <tr><th>任務類型</th><th>具體任務內容</th><th>積分</th></tr>
@@ -544,6 +589,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <!-- 獎勵兌換圖卡 -->
       <div class="subsection-title anim">🎁 積分可以換什麼？</div>
@@ -609,8 +655,8 @@
           <div class="principle-num" style="background:#7B4FBF">3</div>
           <div class="principle-body">
             <h4>獎勵要即時，不要「以後再說」！</h4>
-            <p>孩子兌換積分時，<strong>立刻兌現</strong>。「等一下」、「改天」會讓整個系統失去公信力。
-            建議設定<strong>週日晚餐後</strong>當固定結算時間！</p>
+            <p>孩子兌換積分時，<strong>當天立刻兌現</strong>（例如：完成功課後馬上換 30 分鐘遊戲時間）。「等一下」、「改天」會讓系統失去公信力。</p>
+            <p>另外建議設定<strong>週日晚餐後</strong>為每週「統計結算時間」——清點本週累積積分、討論下週目標，大獎（50 分以上）在這個時間統一兌換。日常小獎每天即時兌現，大獎週日結算，兩個機制可以並用！</p>
           </div>
         </div>
       </div>
@@ -629,6 +675,10 @@
         <div class="qa-card anim anim-d2">
           <div class="qa-q">考試前孩子說「就玩一下下，放鬆一下」怎麼辦？</div>
           <div class="qa-a">事前一起協議：「考試前 3 天，每完成 <strong>1 小時複習可以玩 20 分鐘</strong>，你同意嗎？」讓孩子參與協商，不是被動接受限制——感覺完全不同！</div>
+        </div>
+        <div class="qa-card anim anim-d3">
+          <div class="qa-q">我因為孩子態度不好，把 Switch 沒收了，積分怎麼算？</div>
+          <div class="qa-a">積分制度是「努力獎勵」，沒收是「行為教導」——兩件事分開處理！建議說法：「Switch 暫時保管，<strong>你的積分不會消失</strong>。等你回到正軌，積分還在等你用。但這次的行為，我們需要先談一談。」這樣可以避免孩子覺得「努力白費」，也讓積分不變成情緒勒索工具。孩子若拿積分來談判，可以說：「積分是你辛苦賺的，我們尊重。我們談好後再一起決定什麼時候繼續。」</div>
         </div>
       </div>
 
@@ -667,8 +717,8 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-  <script src="/js/supabase-config.js"></script>
-  <script src="/js/main.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script defer src="/js/supabase-config.js"></script>
+  <script defer src="/js/main.js"></script>
 </body>
 </html>

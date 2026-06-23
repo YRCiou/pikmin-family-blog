@@ -603,19 +603,19 @@ a:hover { text-decoration: underline; }
   to   { opacity: 1; transform: translateX(0); }
 }
 
-/* ── 捲動淡入動畫 ── */
-.anim {
+/* ── 捲動淡入動畫（需 JS 才觸發，NoJS 時直接可見） ── */
+.js-enabled .anim {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
-.anim.visible { opacity: 1; transform: translateY(0); }
-.anim-d1 { transition-delay: 0.08s; }
-.anim-d2 { transition-delay: 0.16s; }
-.anim-d3 { transition-delay: 0.24s; }
-.anim-d4 { transition-delay: 0.32s; }
-.anim-d5 { transition-delay: 0.40s; }
-.anim-d6 { transition-delay: 0.48s; }
+.js-enabled .anim.visible { opacity: 1; transform: translateY(0); }
+.js-enabled .anim-d1 { transition-delay: 0.08s; }
+.js-enabled .anim-d2 { transition-delay: 0.16s; }
+.js-enabled .anim-d3 { transition-delay: 0.24s; }
+.js-enabled .anim-d4 { transition-delay: 0.32s; }
+.js-enabled .anim-d5 { transition-delay: 0.40s; }
+.js-enabled .anim-d6 { transition-delay: 0.48s; }
 
 /* ── 段落背景 ── */
 .section-discover { background: linear-gradient(180deg, #EEF5FF 0%, #F2FAF0 100%); }
@@ -1043,3 +1043,41 @@ a:hover { text-decoration: underline; }
 }
 .page-content th, .page-content td { word-break: break-word; min-width: 0; }
 
+/* ── prefers-reduced-motion 無障礙支援 ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js-enabled .anim,
+  .js-enabled .anim.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── 手機 sticky nav wrap 後 anchor 偏移修正 ── */
+@media (max-width: 480px) {
+  .anchor-target { scroll-margin-top: 160px; }
+  .nav-tag { padding: 7px 12px; font-size: 0.8rem; }
+}
+
+/* ── score-table 手機保護 wrapper ── */
+.table-scroll-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  margin: var(--space-m) 0 var(--space-l);
+}
+.table-scroll-wrap .score-table { margin: 0; }
+.score-table td, .score-table th {
+  word-break: break-word;
+  min-width: 60px;
+}
+@media (max-width: 480px) {
+  .score-table { font-size: 0.78rem; }
+  .score-table th, .score-table td { padding: 8px 8px; }
+}

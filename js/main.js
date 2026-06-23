@@ -43,16 +43,22 @@ function initSectionNav() {
     .map(tag => document.querySelector(tag.getAttribute('href')))
     .filter(Boolean);
 
+  let _lastNavId = '';
+
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        tags.forEach(tag => {
-          tag.classList.toggle('active', tag.getAttribute('href') === `#${id}`);
-        });
-        history.replaceState(null, '', `#${id}`);
-      }
+    const visible = entries.filter(e => e.isIntersecting);
+    if (!visible.length) return;
+    const topmost = visible.reduce((a, b) =>
+      a.boundingClientRect.top < b.boundingClientRect.top ? a : b
+    );
+    const id = topmost.target.id;
+    tags.forEach(tag => {
+      tag.classList.toggle('active', tag.getAttribute('href') === `#${id}`);
     });
+    if (id !== _lastNavId) {
+      _lastNavId = id;
+      history.replaceState(null, '', `#${id}`);
+    }
   }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
 
   sections.forEach(sec => observer.observe(sec));
