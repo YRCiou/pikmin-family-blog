@@ -661,14 +661,20 @@ a:hover { text-decoration: underline; }
   user-select: none;
 }
 .pikmin-card:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 12px 28px rgba(0,0,0,0.14); }
-.pikmin-card .p-emoji {
-  font-size: 2.8rem;
-  display: block;
-  margin-bottom: 10px;
-  animation: float 3s ease-in-out infinite;
+.pikmin-card .p-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  opacity: 0.7;
 }
-.pikmin-card .p-name { font-weight: 900; font-size: 1rem; display: block; margin-bottom: 6px; }
-.pikmin-card .p-skill { font-size: 0.78rem; line-height: 1.65; color: var(--text-mid); display: block; }
+.pikmin-card.p-red    .p-dot { background: #D94040; }
+.pikmin-card.p-yellow .p-dot { background: #D4A017; }
+.pikmin-card.p-blue   .p-dot { background: #2F69C2; }
+.pikmin-card.p-ice    .p-dot { background: #3BB8D8; }
+.pikmin-card.p-purple .p-dot { background: #7B4FBF; }
+.pikmin-card.p-oatchi .p-dot { background: #E07020; }
+.pikmin-card .p-name { font-weight: 900; font-size: 1.3rem; display: block; margin-bottom: 12px; line-height: 1.2; }
+.pikmin-card .p-skill { font-size: 0.92rem; line-height: 1.85; color: var(--text-mid); display: block; }
 
 .pikmin-card.p-red    { border-color: #D94040; background: #FFF4F4; }
 .pikmin-card.p-red    .p-emoji { animation-delay: 0s; }
