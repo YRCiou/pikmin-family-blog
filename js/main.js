@@ -2,38 +2,6 @@
    親子共遊皮克敏 — 主要 JavaScript
    =================================================== */
 
-// ── Supabase 初始化 ──────────────────────────────────
-// 注意：不能用 'supabase' 為頂層變數名，會與 CDN UMD 的 var supabase 衝突
-let _client = null;
-
-function initSupabase() {
-  if (typeof SUPABASE_URL === 'undefined' || SUPABASE_URL.includes('YOUR_PROJECT')) return;
-  try {
-    _client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  } catch (e) {
-    console.warn('Supabase init failed:', e);
-  }
-}
-
-// ── 瀏覽計數 ────────────────────────────────────────
-async function incrementView(slug) {
-  if (!_client) return null;
-  try {
-    const { data, error } = await _client.rpc('increment_view', { page_slug: slug });
-    if (error) throw error;
-    return data;
-  } catch (e) {
-    console.warn('View increment error:', e);
-    return null;
-  }
-}
-
-function displayCount(count, selector) {
-  const els = document.querySelectorAll(selector);
-  const text = count != null ? Number(count).toLocaleString('zh-TW') : '—';
-  els.forEach(el => { el.textContent = text; });
-}
-
 // ── 段落導覽：高亮目前段落 ─────────────────────────
 function initSectionNav() {
   const tags = document.querySelectorAll('.nav-tag[href^="#"]');
@@ -81,20 +49,6 @@ function initBackToTop() {
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-// ── 首頁：只計算自身瀏覽數 ──────────────────────────
-async function loadIndexPage() {
-  const count = await incrementView('home');
-  displayCount(count, '.view-count');
-}
-
-// ── 文章頁：計數 ────────────────────────────────────
-async function loadArticlePage() {
-  const slug = document.body.dataset.slug;
-  if (!slug) return;
-  const count = await incrementView(slug);
-  displayCount(count, '.view-count');
-}
-
 // ── 捲動淡入動畫 ─────────────────────────────────────
 function initScrollAnimations() {
   const els = document.querySelectorAll('.anim');
@@ -112,14 +66,7 @@ function initScrollAnimations() {
 
 // ── 入口 ─────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  initSupabase();
   initSectionNav();
   initBackToTop();
   initScrollAnimations();
-
-  if (document.body.dataset.page === 'index') {
-    loadIndexPage();
-  } else if (document.body.dataset.page === 'article') {
-    loadArticlePage();
-  }
 });
