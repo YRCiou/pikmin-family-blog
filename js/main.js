@@ -64,9 +64,22 @@ function initScrollAnimations() {
   els.forEach(el => obs.observe(el));
 }
 
+// ── 訪客計數（GoatCounter）──────────────────────────
+// 需在 GoatCounter 後台 Settings 勾選
+// "Allow adding visitor counts on your website"，否則端點回傳 403。
+function initVisitorCount() {
+  const el = document.getElementById('visit-count');
+  if (!el) return;
+  fetch('https://yrciou.goatcounter.com/counter/TOTAL.json')
+    .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then(data => { el.textContent = data.count; })
+    .catch(() => { el.textContent = '許多'; });
+}
+
 // ── 入口 ─────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initSectionNav();
   initBackToTop();
   initScrollAnimations();
+  initVisitorCount();
 });
