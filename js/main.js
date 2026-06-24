@@ -114,31 +114,41 @@ function initFlowerField() {
       '<path d="M20 ' + vb + ' C20 ' + (vb - 18) + ' 18 ' + ((vb + 24) / 2).toFixed(1) + ' 18 24" fill="none" stroke="#4E9325" stroke-width="3" stroke-linecap="round"/>' +
       '<g transform="translate(20,20)">' + petals + '<circle r="5" fill="#F4C430"/></g></svg>';
   }
-  function place(html, leftPct, w, hpx, delay) {
+  function place(spec) {
     const d = document.createElement('div');
     d.className = 'ff-plant';
-    d.style.left = leftPct + '%';
-    d.style.width = w.toFixed(1) + 'px';
-    d.style.height = hpx.toFixed(1) + 'px';
-    d.style.marginLeft = (-w / 2).toFixed(1) + 'px';
-    d.style.transitionDelay = delay.toFixed(2) + 's';
-    d.innerHTML = html;
+    d.style.left = spec.left + '%';
+    d.style.width = spec.w.toFixed(1) + 'px';
+    d.style.height = spec.h.toFixed(1) + 'px';
+    d.style.marginLeft = (-spec.w / 2).toFixed(1) + 'px';
+    d.style.setProperty('--d', spec.delay.toFixed(2) + 's');
+    d.innerHTML = spec.html;
     plants.appendChild(d);
   }
   function build() {
     plants.innerHTML = '';
     const W = window.innerWidth;
-    const nBlades = Math.max(16, Math.round(W / 18));
-    const nFlowers = Math.max(7, Math.round(W / 52));
+    const nBlades = Math.max(48, Math.round(W / 6));
+    const nFlowers = Math.max(21, Math.round(W / 17));
+    const specs = [];
     for (let i = 0; i < nBlades; i++) {
       const w = rnd(11, 17);
-      place(blade(greens[i % greens.length]), rnd(0, 100), w, w * 3.1, rnd(0, 0.4));
+      specs.push({ html: blade(greens[i % greens.length]), left: rnd(0, 100), w: w, h: w * 3.1 });
     }
     for (let i = 0; i < nFlowers; i++) {
       const w = rnd(22, 34);
       const stem = rnd(6, 64);
-      place(flower(stem), rnd(2, 98), w, w * (stem + 26) / 40, rnd(0.05, 0.55));
+      specs.push({ html: flower(stem), left: rnd(2, 98), w: w, h: w * (stem + 26) / 40 });
     }
+    for (let i = specs.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = specs[i]; specs[i] = specs[j]; specs[j] = tmp;
+    }
+    const total = specs.length;
+    specs.forEach((s, i) => {
+      s.delay = (i / total) * 8.2 + rnd(0, 0.25);
+      place(s);
+    });
   }
   build();
 
