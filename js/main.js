@@ -128,8 +128,8 @@ function initFlowerField() {
   function build() {
     plants.innerHTML = '';
     const W = window.innerWidth;
-    const nBlades = Math.max(48, Math.round(W / 6));
-    const nFlowers = Math.max(21, Math.round(W / 17));
+    const nBlades = Math.max(43, Math.round(W / 6 * 0.9));
+    const nFlowers = Math.max(27, Math.round(W / 17 * 1.3));
     const specs = [];
     for (let i = 0; i < nBlades; i++) {
       const w = rnd(11, 17);
