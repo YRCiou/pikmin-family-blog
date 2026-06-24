@@ -1103,3 +1103,35 @@ a:hover { text-decoration: underline; }
   .score-table { font-size: 0.78rem; }
   .score-table th, .score-table td { padding: 8px 8px; }
 }
+
+/* ── 底部花田（閒置生長、捲動淡出） ── */
+#flower-field {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 200px;
+  pointer-events: none;
+  z-index: 80;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+#flower-field.idle { opacity: 1; }
+#flower-field .ff-ground {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 62px;
+  transform: scaleY(0.04);
+  transform-origin: bottom;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#flower-field.idle .ff-ground { transform: scaleY(1); }
+#flower-field .ff-plants { position: absolute; inset: 0; }
+#flower-field .ff-plant {
+  position: absolute;
+  bottom: 30px;
+  transform: translateY(120%) scale(0.5);
+  opacity: 0;
+  transform-origin: bottom center;
+  transition: transform 1s cubic-bezier(0.34, 1.4, 0.5, 1), opacity 0.6s ease;
+}
+#flower-field.idle .ff-plant { transform: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) { #flower-field { display: none; } }
