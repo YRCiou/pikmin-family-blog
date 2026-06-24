@@ -111,6 +111,28 @@ a:hover { text-decoration: underline; }
 .site-logo:hover { text-decoration: none; opacity: 0.9; }
 .site-logo-icon { font-size: 1.4rem; }
 
+/* 導覽 bar 內的訪客計數膠囊 */
+.nav-counter {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-counter #visit-count { font-weight: 800; color: var(--pikmin-yellow); }
+@media (max-width: 600px) {
+  .nav-counter { font-size: 0.78rem; padding: 4px 10px; }
+  .nav-counter .nc-label { display: none; }   /* 窄螢幕只留「🌱 數字」 */
+}
+
 /* ── Hero ── */
 .hero {
   position: relative;
@@ -828,7 +850,7 @@ a:hover { text-decoration: underline; }
 .oatchi-rank { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
 .oatchi-num  { font-size: 2rem; font-weight: 900; display: block; line-height: 1; margin-bottom: 6px; }
 .oatchi-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
-.oatchi-skill { font-weight: 800; font-size: 0.88rem; margin-bottom: 4px; }
+.oatchi-skill { font-weight: 800; font-size: 0.74rem; margin-bottom: 4px; white-space: nowrap; }
 .oatchi-why   { font-size: 0.76rem; color: var(--text-mid); line-height: 1.5; }
 
 /* ── Q&A 卡片 ── */
