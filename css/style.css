@@ -1145,3 +1145,45 @@ a:hover { text-decoration: underline; }
   transition-delay: var(--d, 0s);
 }
 @media (prefers-reduced-motion: reduce) { #flower-field { display: none; } }
+
+/* ========================================================
+   手機新手攻略 CTA（首頁「親子共玩」段落 → 子頁入口）
+   ======================================================== */
+.mg-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  margin: var(--space-l) 0 var(--space-xl);
+  padding: var(--space-l);
+  border-radius: var(--radius-l);
+  background: linear-gradient(135deg, #E8F5E0, #EFF5FF);
+  border: 2px solid var(--tag-discover);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.mg-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(47, 105, 194, 0.18);
+  text-decoration: none;
+}
+.mg-cta-icon { font-size: 2.4rem; flex-shrink: 0; line-height: 1; }
+.mg-cta-body { flex: 1; }
+.mg-cta-kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--tag-discover);
+}
+.mg-cta-title {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin: 2px 0;
+}
+.mg-cta-sub { font-size: 0.9rem; color: var(--text-mid); line-height: 1.5; }
+.mg-cta-arrow { font-size: 1.6rem; color: var(--tag-discover); flex-shrink: 0; }
+@media (max-width: 480px) {
+  .mg-cta { padding: var(--space-m); gap: var(--space-s); }
+  .mg-cta-icon { font-size: 1.9rem; }
+  .mg-cta-title { font-size: 1.02rem; }
+}
