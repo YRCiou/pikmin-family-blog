@@ -1187,3 +1187,12 @@ a:hover { text-decoration: underline; }
   .mg-cta-icon { font-size: 1.9rem; }
   .mg-cta-title { font-size: 1.02rem; }
 }
+
+/* 攻略 CTA 黃色變體（遊戲攻略段落 → 打蘑菇子頁） */
+.mg-cta.mg-cta-tips {
+  border-color: var(--tag-tips);
+  background: linear-gradient(135deg, #FFF6D8, #FFFDF0);
+}
+.mg-cta.mg-cta-tips .mg-cta-kicker,
+.mg-cta.mg-cta-tips .mg-cta-arrow { color: #9B6A00; }
+.mg-cta.mg-cta-tips:hover { box-shadow: 0 8px 22px rgba(232, 184, 0, 0.22); }
