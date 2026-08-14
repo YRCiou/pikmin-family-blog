@@ -333,6 +333,40 @@
     .sheet-btn.alt { background: var(--green-pale); color: var(--green-dark); }
     .sheet-btn:active { filter: brightness(0.92); }
 
+    /* 座標複製選單 */
+    .copy-menu {
+      display: none;
+      margin-top: 10px;
+      border-top: 1px dashed var(--card-border);
+      padding-top: 10px;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .copy-menu.open { display: flex; }
+    .copy-opt {
+      border: 1.5px solid var(--card-border);
+      background: var(--green-bg);
+      border-radius: var(--radius-m);
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .copy-opt:active { background: var(--green-pale); }
+    .copy-opt .co-label { font-weight: 900; color: var(--green-dark); white-space: nowrap; }
+    .copy-opt .co-value {
+      color: var(--text-mid);
+      font-size: 12.5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-left: auto;
+    }
+
     /* ── 面板（更多篩選 / 附近純點）── */
     .panel-mask {
       position: absolute; inset: 0;
@@ -499,6 +533,14 @@
         <a class="sheet-btn" id="btnGmap" target="_blank" rel="noopener">🧭 導航</a>
         <a class="sheet-btn alt" id="btnAmap" target="_blank" rel="noopener">🍎 Apple</a>
         <button class="sheet-btn alt" id="btnCopy">📋 座標</button>
+      </div>
+      <div class="copy-menu" id="copyMenu">
+        <button class="copy-opt" id="copyGeneral">
+          <span class="co-label">📋 一般格式</span><span class="co-value"></span>
+        </button>
+        <button class="copy-opt" id="copyApple">
+          <span class="co-label">🍎 Apple 地圖格式</span><span class="co-value"></span>
+        </button>
       </div>
     </div>
 
@@ -817,16 +859,30 @@
         'https://www.google.com/maps/dir/?api=1&destination=' + s.lat + ',' + s.lon;
       document.getElementById('btnAmap').href =
         'https://maps.apple.com/?daddr=' + s.lat + ',' + s.lon;
+      // 座標複製：一般 vs Apple 地圖（北/東）兩種格式
+      var copyMenu = document.getElementById('copyMenu');
+      copyMenu.classList.remove('open');
+      var general = s.lat.toFixed(6) + ', ' + s.lon.toFixed(6);
+      var apple = (s.lat >= 0 ? '北' : '南') + Math.abs(s.lat).toFixed(5) + '° ' +
+                  (s.lon >= 0 ? '東' : '西') + Math.abs(s.lon).toFixed(5) + '°';
+      document.querySelector('#copyGeneral .co-value').textContent = general;
+      document.querySelector('#copyApple .co-value').textContent = apple;
       document.getElementById('btnCopy').onclick = function () {
-        var txt = s.lat.toFixed(6) + ', ' + s.lon.toFixed(6);
-        (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
-          .then(function () { showToast('已複製座標 ' + txt); })
-          .catch(function () { showToast(txt); });
+        copyMenu.classList.toggle('open');
       };
+      document.getElementById('copyGeneral').onclick = function () { copyText(general); };
+      document.getElementById('copyApple').onclick = function () { copyText(apple); };
       sheet.classList.add('open');
+    }
+    function copyText(txt) {
+      (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
+        .then(function () { showToast('已複製 ' + txt); })
+        .catch(function () { showToast(txt); });
+      document.getElementById('copyMenu').classList.remove('open');
     }
     function closeSheet() {
       sheet.classList.remove('open');
+      document.getElementById('copyMenu').classList.remove('open');
       if (selectedMarker) { selectedMarker.setIcon(makeIcon(selectedMarker.spot, false)); selectedMarker = null; }
     }
     document.getElementById('sheetClose').addEventListener('click', closeSheet);
